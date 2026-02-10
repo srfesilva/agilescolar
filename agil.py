@@ -15,14 +15,16 @@ COLOR_SIDEBAR_TEXT = "#FFFFFF" # Branco
 COLOR_MAIN_TEXT = "#000000" # Preto
 COLOR_BORDER_BOX = "#ADD8E6" # Azul claro
 
-# CSS Personalizado para injetar no Streamlit
+# CSS Personalizado para injetar no Streamlit (CORRIGIDO)
 custom_css = f"""
 <style>
     /* Sidebar Background e Texto */
     section[data-testid="stSidebar"] {{
         background-color: {COLOR_SIDEBAR_BG};
     }}
-    section[data-testid="stSidebar"] .css-1d391kg, /* Ajuste para classes dinâmicas do Streamlit */
+    
+    /* Ajuste para classes dinâmicas do Streamlit na Sidebar */
+    section[data-testid="stSidebar"] .css-1d391kg, 
     section[data-testid="stSidebar"] h1,
     section[data-testid="stSidebar"] h2,
     section[data-testid="stSidebar"] h3,
@@ -45,14 +47,14 @@ custom_css = f"""
         border-color: {COLOR_BORDER_BOX} !important;
     }}
     
-    /* Ajuste fino para focar a borda também */
-    div[data-baseweb="input"]:focus-within, div[data-baseweb="select"]:focus-within {
+    /* Ajuste fino para focar a borda também - CORRIGIDO AS CHAVES AQUI */
+    div[data-baseweb="input"]:focus-within, div[data-baseweb="select"]:focus-within {{
         border-color: {COLOR_BORDER_BOX} !important;
         box-shadow: 0 0 0 1px {COLOR_BORDER_BOX} !important;
-    }
+    }}
 
     /* Centralizar a mensagem da Home */
-    .home-welcome {
+    .home-welcome {{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -60,7 +62,7 @@ custom_css = f"""
         font-size: 2.5rem;
         font-weight: bold;
         text-align: center;
-    }
+    }}
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
