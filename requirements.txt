@@ -1,0 +1,3 @@
+/sgde_project
+|-- app.py  (O código principal abaixo)
+|-- requirements.txt (As dependências necessárias)
